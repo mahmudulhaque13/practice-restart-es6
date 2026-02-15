@@ -34,9 +34,19 @@
 // console.log(firstEven); // 10
 
 // Remove Duplicates (Set)
-const arr = [1, 2, 2, 3, 4, 4, 5];
+// const arr = [1, 2, 2, 3, 4, 4, 5];
 
-const unique = [...new Set(arr)];
+// const unique = [...new Set(arr)];
 
-console.log(unique);
-// [1, 2, 3, 4, 5]
+// console.log(unique);
+
+// Object.entries()
+const person = {
+  name: "Hasan",
+  age: 28,
+  city: "Dhaka",
+};
+
+const entries = Object.entries(person);
+
+console.log(entries);
