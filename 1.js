@@ -16,12 +16,19 @@
 // console.log(greaterThan50);
 
 // reduce
-const cart = [
-  { item: "Book", price: 300 },
-  { item: "Pen", price: 50 },
-  { item: "Notebook", price: 150 },
-];
+// const cart = [
+//   { item: "Book", price: 300 },
+//   { item: "Pen", price: 50 },
+//   { item: "Notebook", price: 150 },
+// ];
 
-const total = cart.reduce((sum, { price }) => sum + price, 0);
+// const total = cart.reduce((sum, { price }) => sum + price, 0);
 
-console.log(total);
+// console.log(total);
+
+// find
+const nums = [3, 7, 9, 10, 12];
+
+const firstEven = nums.find((n) => n % 2 === 0);
+
+console.log(firstEven); // 10
