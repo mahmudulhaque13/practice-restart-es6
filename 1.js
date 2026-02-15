@@ -27,8 +27,16 @@
 // console.log(total);
 
 // find
-const nums = [3, 7, 9, 10, 12];
+// const nums = [3, 7, 9, 10, 12];
 
-const firstEven = nums.find((n) => n % 2 === 0);
+// const firstEven = nums.find((n) => n % 2 === 0);
 
-console.log(firstEven); // 10
+// console.log(firstEven); // 10
+
+// Remove Duplicates (Set)
+const arr = [1, 2, 2, 3, 4, 4, 5];
+
+const unique = [...new Set(arr)];
+
+console.log(unique);
+// [1, 2, 3, 4, 5]
