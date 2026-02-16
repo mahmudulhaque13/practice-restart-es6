@@ -78,10 +78,20 @@
 // console.log(grouped);
 
 // cart থেকে total price বের করো।
-const cart = [
-  { item: "Book", price: 200, qty: 2 },
-  { item: "Pen", price: 10, qty: 5 },
-];
-const total = cart.reduce((sum, { price, qty }) => sum + price * qty, 0);
+// const cart = [
+//   { item: "Book", price: 200, qty: 2 },
+//   { item: "Pen", price: 10, qty: 5 },
+// ];
+// const total = cart.reduce((sum, { price, qty }) => sum + price * qty, 0);
 
-console.log(total); // 450
+// console.log(total); // 450
+
+// city না থাকলে "Unknown" দেখাবে।
+const user = {
+  name: "Karim",
+  address: {},
+};
+const city = user.address?.city ?? "Unknown";
+
+console.log(city);
+// "Unknown"
