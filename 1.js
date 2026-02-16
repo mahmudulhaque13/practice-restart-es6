@@ -41,12 +41,22 @@
 // console.log(unique);
 
 // Object.entries()
-const person = {
-  name: "Hasan",
-  age: 28,
-  city: "Dhaka",
-};
+// const person = {
+//   name: "Hasan",
+//   age: 28,
+//   city: "Dhaka",
+// };
 
-const entries = Object.entries(person);
+// const entries = Object.entries(person);
 
-console.log(entries);
+// console.log(entries);
+
+// একটি array-তে প্রতিটি element কয়বার আছে তা count করো।
+const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+const countFruits = fruits.reduce((acc, fruit) => {
+  acc[fruit] = (acc[fruit] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(countFruits);
+// { apple: 3, banana: 2, orange: 1 }
