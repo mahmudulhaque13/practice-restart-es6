@@ -87,11 +87,23 @@
 // console.log(total); // 450
 
 // city না থাকলে "Unknown" দেখাবে।
-const user = {
-  name: "Karim",
-  address: {},
-};
-const city = user.address?.city ?? "Unknown";
+// const user = {
+//   name: "Karim",
+//   address: {},
+// };
+// const city = user.address?.city ?? "Unknown";
 
-console.log(city);
+// console.log(city);
 // "Unknown"
+
+// id কে key করে object বানাও।
+const users = [
+  { id: 1, name: "Rahim" },
+  { id: 2, name: "Karim" },
+];
+const userMap = users.reduce((acc, user) => {
+  acc[user.id] = user;
+  return acc;
+}, {});
+
+console.log(userMap);
