@@ -63,16 +63,25 @@
 
 // department অনুযায়ী employee গুলো group করো।
 
-const employees = [
-  { name: "Rahim", dept: "IT" },
-  { name: "Karim", dept: "HR" },
-  { name: "Salma", dept: "IT" },
+// const employees = [
+//   { name: "Rahim", dept: "IT" },
+//   { name: "Karim", dept: "HR" },
+//   { name: "Salma", dept: "IT" },
+// ];
+
+// const grouped = employees.reduce((acc, emp) => {
+//   acc[emp.dept] = acc[emp.dept] || [];
+//   acc[emp.dept].push(emp);
+//   return acc;
+// }, {});
+
+// console.log(grouped);
+
+// cart থেকে total price বের করো।
+const cart = [
+  { item: "Book", price: 200, qty: 2 },
+  { item: "Pen", price: 10, qty: 5 },
 ];
+const total = cart.reduce((sum, { price, qty }) => sum + price * qty, 0);
 
-const grouped = employees.reduce((acc, emp) => {
-  acc[emp.dept] = acc[emp.dept] || [];
-  acc[emp.dept].push(emp);
-  return acc;
-}, {});
-
-console.log(grouped);
+console.log(total); // 450
