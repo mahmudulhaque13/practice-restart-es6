@@ -31,12 +31,37 @@
 // console.log(obj.b.c); // 2
 
 // Flatten Deep Nested Array
-[1, [2, [3, [4]]]];
+// [1, [2, [3, [4]]]];
 
-const flatten = (arr) =>
-  arr.reduce(
-    (acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val),
-    [],
-  );
+// const flatten = (arr) =>
+//   arr.reduce(
+//     (acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val),
+//     [],
+//   );
 
-console.log(flatten([1, [2, [3, [4]]]]));
+// console.log(flatten([1, [2, [3, [4]]]]));
+
+// Promise.all Polyfill
+// Promise.all() নিজে বানাও।
+const promiseAll = (promises) =>
+  new Promise((resolve, reject) => {
+    let results = [];
+    let completed = 0;
+
+    promises.forEach((p, i) => {
+      Promise.resolve(p)
+        .then((res) => {
+          results[i] = res;
+          completed++;
+          if (completed === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch(reject);
+    });
+  });
+
+// test
+promiseAll([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)]).then(
+  console.log,
+);
