@@ -43,25 +43,47 @@
 
 // Promise.all Polyfill
 // Promise.all() নিজে বানাও।
-const promiseAll = (promises) =>
-  new Promise((resolve, reject) => {
-    let results = [];
-    let completed = 0;
+// const promiseAll = (promises) =>
+//   new Promise((resolve, reject) => {
+//     let results = [];
+//     let completed = 0;
 
-    promises.forEach((p, i) => {
-      Promise.resolve(p)
-        .then((res) => {
-          results[i] = res;
-          completed++;
-          if (completed === promises.length) {
-            resolve(results);
-          }
-        })
-        .catch(reject);
-    });
-  });
+//     promises.forEach((p, i) => {
+//       Promise.resolve(p)
+//         .then((res) => {
+//           results[i] = res;
+//           completed++;
+//           if (completed === promises.length) {
+//             resolve(results);
+//           }
+//         })
+//         .catch(reject);
+//     });
+//   });
 
-// test
-promiseAll([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)]).then(
-  console.log,
-);
+// // test
+// promiseAll([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)]).then(
+//   console.log,
+// );
+
+// Memoization Function
+// expensive function cache করো।
+const memoize = (fn) => {
+  const cache = {};
+  return (...args) => {
+    const key = JSON.stringify(args);
+    if (cache[key]) return cache[key];
+    cache[key] = fn(...args);
+    return cache[key];
+  };
+};
+
+const slowAdd = (a, b) => {
+  console.log("calculating...");
+  return a + b;
+};
+
+const fastAdd = memoize(slowAdd);
+
+fastAdd(2, 3);
+fastAdd(2, 3); // cached
