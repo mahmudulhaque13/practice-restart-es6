@@ -68,22 +68,40 @@
 
 // Memoization Function
 // expensive function cache করো।
-const memoize = (fn) => {
-  const cache = {};
+// const memoize = (fn) => {
+//   const cache = {};
+//   return (...args) => {
+//     const key = JSON.stringify(args);
+//     if (cache[key]) return cache[key];
+//     cache[key] = fn(...args);
+//     return cache[key];
+//   };
+// };
+
+// const slowAdd = (a, b) => {
+//   console.log("calculating...");
+//   return a + b;
+// };
+
+// const fastAdd = memoize(slowAdd);
+
+// fastAdd(2, 3);
+// fastAdd(2, 3); // cached
+
+// Implement once() Function
+// function শুধু একবার চলবে।
+const once = (fn) => {
+  let called = false;
+  let result;
   return (...args) => {
-    const key = JSON.stringify(args);
-    if (cache[key]) return cache[key];
-    cache[key] = fn(...args);
-    return cache[key];
+    if (!called) {
+      called = true;
+      result = fn(...args);
+    }
+    return result;
   };
 };
 
-const slowAdd = (a, b) => {
-  console.log("calculating...");
-  return a + b;
-};
-
-const fastAdd = memoize(slowAdd);
-
-fastAdd(2, 3);
-fastAdd(2, 3); // cached
+const init = once(() => console.log("Initialized"));
+init();
+init(); // ignored
