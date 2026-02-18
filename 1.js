@@ -97,13 +97,13 @@
 // "Unknown"
 
 // id কে key করে object বানাও।
-const users = [
-  { id: 1, name: "Rahim" },
-  { id: 2, name: "Karim" },
-];
-const userMap = users.reduce((acc, user) => {
-  acc[user.id] = user;
-  return acc;
-}, {});
+// const users = [
+//   { id: 1, name: "Rahim" },
+//   { id: 2, name: "Karim" },
+// ];
+// const userMap = users.reduce((acc, user) => {
+//   acc[user.id] = user;
+//   return acc;
+// }, {});
 
-console.log(userMap);
+// console.log(userMap);
