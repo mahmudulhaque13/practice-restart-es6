@@ -14,18 +14,29 @@
 
 // Deep Clone Object (Without JSON)
 // nested object deep copy করো।
-const obj = { a: 1, b: { c: 2 } };
-const deepClone = (obj) => {
-  if (obj === null || typeof obj !== "object") return obj;
+// const obj = { a: 1, b: { c: 2 } };
+// const deepClone = (obj) => {
+//   if (obj === null || typeof obj !== "object") return obj;
 
-  const copy = Array.isArray(obj) ? [] : {};
-  for (let key in obj) {
-    copy[key] = deepClone(obj[key]);
-  }
-  return copy;
-};
+//   const copy = Array.isArray(obj) ? [] : {};
+//   for (let key in obj) {
+//     copy[key] = deepClone(obj[key]);
+//   }
+//   return copy;
+// };
 
-const clone = deepClone(obj);
-clone.b.c = 99;
+// const clone = deepClone(obj);
+// clone.b.c = 99;
 
-console.log(obj.b.c); // 2
+// console.log(obj.b.c); // 2
+
+// Flatten Deep Nested Array
+[1, [2, [3, [4]]]];
+
+const flatten = (arr) =>
+  arr.reduce(
+    (acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val),
+    [],
+  );
+
+console.log(flatten([1, [2, [3, [4]]]]));
