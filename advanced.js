@@ -108,21 +108,34 @@
 
 // Event Emitter (Mini System)
 // simple event system বানাও।
-class EventEmitter {
-  constructor() {
-    this.events = {};
-  }
+// class EventEmitter {
+//   constructor() {
+//     this.events = {};
+//   }
 
-  on(event, listener) {
-    (this.events[event] ||= []).push(listener);
-  }
+//   on(event, listener) {
+//     (this.events[event] ||= []).push(listener);
+//   }
 
-  emit(event, data) {
-    this.events[event]?.forEach((fn) => fn(data));
-  }
-}
+//   emit(event, data) {
+//     this.events[event]?.forEach((fn) => fn(data));
+//   }
+// }
 
-// test
-const emitter = new EventEmitter();
-emitter.on("message", (msg) => console.log(msg));
-emitter.emit("message", "Hello World");
+// // test
+// const emitter = new EventEmitter();
+// emitter.on("message", (msg) => console.log(msg));
+// emitter.emit("message", "Hello World");
+
+// Throttle Function
+// function নির্দিষ্ট সময় পরপর চলবে।
+const throttle = (fn, delay) => {
+  let last = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - last >= delay) {
+      last = now;
+      fn(...args);
+    }
+  };
+};
