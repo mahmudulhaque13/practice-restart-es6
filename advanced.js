@@ -129,13 +129,27 @@
 
 // Throttle Function
 // function নির্দিষ্ট সময় পরপর চলবে।
-const throttle = (fn, delay) => {
-  let last = 0;
-  return (...args) => {
-    const now = Date.now();
-    if (now - last >= delay) {
-      last = now;
-      fn(...args);
-    }
-  };
+// const throttle = (fn, delay) => {
+//   let last = 0;
+//   return (...args) => {
+//     const now = Date.now();
+//     if (now - last >= delay) {
+//       last = now;
+//       fn(...args);
+//     }
+//   };
+// };
+
+// Async Queue (Sequential Execution)
+// async task গুলো একটার পর একটা চলবে
+const asyncQueue = async (tasks) => {
+  for (let task of tasks) {
+    await task();
+  }
 };
+
+asyncQueue([
+  () => Promise.resolve(console.log("Task 1")),
+  () => Promise.resolve(console.log("Task 2")),
+  () => Promise.resolve(console.log("Task 3")),
+]);
