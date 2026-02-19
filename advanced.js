@@ -90,18 +90,39 @@
 
 // Implement once() Function
 // function শুধু একবার চলবে।
-const once = (fn) => {
-  let called = false;
-  let result;
-  return (...args) => {
-    if (!called) {
-      called = true;
-      result = fn(...args);
-    }
-    return result;
-  };
-};
+// const once = (fn) => {
+//   let called = false;
+//   let result;
+//   return (...args) => {
+//     if (!called) {
+//       called = true;
+//       result = fn(...args);
+//     }
+//     return result;
+//   };
+// };
 
-const init = once(() => console.log("Initialized"));
-init();
-init(); // ignored
+// const init = once(() => console.log("Initialized"));
+// init();
+// init(); // ignored
+
+// Event Emitter (Mini System)
+// simple event system বানাও।
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+
+  on(event, listener) {
+    (this.events[event] ||= []).push(listener);
+  }
+
+  emit(event, data) {
+    this.events[event]?.forEach((fn) => fn(data));
+  }
+}
+
+// test
+const emitter = new EventEmitter();
+emitter.on("message", (msg) => console.log(msg));
+emitter.emit("message", "Hello World");
