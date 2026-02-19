@@ -142,14 +142,31 @@
 
 // Async Queue (Sequential Execution)
 // async task গুলো একটার পর একটা চলবে
-const asyncQueue = async (tasks) => {
-  for (let task of tasks) {
-    await task();
-  }
+// const asyncQueue = async (tasks) => {
+//   for (let task of tasks) {
+//     await task();
+//   }
+// };
+
+// asyncQueue([
+//   () => Promise.resolve(console.log("Task 1")),
+//   () => Promise.resolve(console.log("Task 2")),
+//   () => Promise.resolve(console.log("Task 3")),
+// ]);
+
+// Custom bind() Polyfill
+// নিজে Function.prototype.bind বানাও।
+Function.prototype.myBind = function (context, ...args) {
+  const fn = this;
+  return function (...rest) {
+    return fn.apply(context, [...args, ...rest]);
+  };
 };
 
-asyncQueue([
-  () => Promise.resolve(console.log("Task 1")),
-  () => Promise.resolve(console.log("Task 2")),
-  () => Promise.resolve(console.log("Task 3")),
-]);
+// test
+function greet(greeting, name) {
+  return `${greeting}, ${name}`;
+}
+
+const sayHi = greet.myBind(null, "Hi");
+console.log(sayHi("Rahim"));
