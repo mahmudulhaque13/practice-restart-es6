@@ -156,17 +156,31 @@
 
 // Custom bind() Polyfill
 // নিজে Function.prototype.bind বানাও।
-Function.prototype.myBind = function (context, ...args) {
-  const fn = this;
-  return function (...rest) {
-    return fn.apply(context, [...args, ...rest]);
-  };
+// Function.prototype.myBind = function (context, ...args) {
+//   const fn = this;
+//   return function (...rest) {
+//     return fn.apply(context, [...args, ...rest]);
+//   };
+// };
+
+// // test
+// function greet(greeting, name) {
+//   return `${greeting}, ${name}`;
+// }
+
+// const sayHi = greet.myBind(null, "Hi");
+// console.log(sayHi("Rahim"));
+
+// Async Retry Logic
+// fail হলে API call retry করবে (max n times)।
+const retry = async (fn, retries = 3) => {
+  try {
+    return await fn();
+  } catch (err) {
+    if (retries === 0) throw err;
+    return retry(fn, retries - 1);
+  }
 };
 
-// test
-function greet(greeting, name) {
-  return `${greeting}, ${name}`;
-}
-
-const sayHi = greet.myBind(null, "Hi");
-console.log(sayHi("Rahim"));
+// usage
+retry(() => fetch("https://api.example.com"), 3);
