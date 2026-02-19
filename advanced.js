@@ -173,14 +173,35 @@
 
 // Async Retry Logic
 // fail হলে API call retry করবে (max n times)।
-const retry = async (fn, retries = 3) => {
-  try {
-    return await fn();
-  } catch (err) {
-    if (retries === 0) throw err;
-    return retry(fn, retries - 1);
-  }
-};
+// const retry = async (fn, retries = 3) => {
+//   try {
+//     return await fn();
+//   } catch (err) {
+//     if (retries === 0) throw err;
+//     return retry(fn, retries - 1);
+//   }
+// };
 
-// usage
-retry(() => fetch("https://api.example.com"), 3);
+// // usage
+// retry(() => fetch("https://api.example.com"), 3);
+
+// Promise Pool (Concurrency Control)
+// একসাথে max N promise চলবে।
+const promisePool = async (tasks, limit) => {
+  const results = [];
+  const executing = [];
+
+  for (const task of tasks) {
+    const p = Promise.resolve().then(task);
+    results.push(p);
+
+    if (limit <= tasks.length) {
+      const e = p.then(() => executing.splice(executing.indexOf(e), 1));
+      executing.push(e);
+      if (executing.length >= limit) {
+        await Promise.race(executing);
+      }
+    }
+  }
+  return Promise.all(results);
+};
