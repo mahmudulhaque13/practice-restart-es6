@@ -273,18 +273,18 @@
 
 // Custom Iterable Object
 // object কে iterable বানাও।
-const range = {
-  from: 1,
-  to: 5,
-  [Symbol.iterator]() {
-    let cur = this.from;
-    return {
-      next: () => ({
-        value: cur,
-        done: cur++ > this.to,
-      }),
-    };
-  },
-};
+// const range = {
+//   from: 1,
+//   to: 5,
+//   [Symbol.iterator]() {
+//     let cur = this.from;
+//     return {
+//       next: () => ({
+//         value: cur,
+//         done: cur++ > this.to,
+//       }),
+//     };
+//   },
+// };
 
-console.log([...range]); // ✅ [1, 2, 3, 4, 5]
+// console.log([...range]); // ✅ [1, 2, 3, 4, 5]
