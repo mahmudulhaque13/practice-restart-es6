@@ -240,16 +240,33 @@
 
 // Observer Pattern (Pure JS)
 // subscribe / notify system বানাও।
-class Subject {
-  constructor() {
-    this.observers = [];
-  }
+// class Subject {
+//   constructor() {
+//     this.observers = [];
+//   }
 
-  subscribe(fn) {
-    this.observers.push(fn);
-  }
+//   subscribe(fn) {
+//     this.observers.push(fn);
+//   }
 
-  notify(data) {
-    this.observers.forEach((fn) => fn(data));
-  }
-}
+//   notify(data) {
+//     this.observers.forEach((fn) => fn(data));
+//   }
+// }
+
+// Proxy for Validation
+// negative age prevent করো।
+const user = new Proxy(
+  { age: 25 },
+  {
+    set(target, prop, value) {
+      if (prop === "age" && value < 0) {
+        throw new Error("Invalid age");
+      }
+      target[prop] = value;
+      return true;
+    },
+  },
+);
+
+user.age = 30; // ok
