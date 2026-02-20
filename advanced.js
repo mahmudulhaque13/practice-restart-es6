@@ -256,17 +256,35 @@
 
 // Proxy for Validation
 // negative age prevent করো।
-const user = new Proxy(
-  { age: 25 },
-  {
-    set(target, prop, value) {
-      if (prop === "age" && value < 0) {
-        throw new Error("Invalid age");
-      }
-      target[prop] = value;
-      return true;
-    },
-  },
-);
+// const user = new Proxy(
+//   { age: 25 },
+//   {
+//     set(target, prop, value) {
+//       if (prop === "age" && value < 0) {
+//         throw new Error("Invalid age");
+//       }
+//       target[prop] = value;
+//       return true;
+//     },
+//   },
+// );
 
-user.age = 30; // ok
+// user.age = 30; // ok
+
+// Custom Iterable Object
+// object কে iterable বানাও।
+const range = {
+  from: 1,
+  to: 5,
+  [Symbol.iterator]() {
+    let cur = this.from;
+    return {
+      next: () => ({
+        value: cur,
+        done: cur++ > this.to,
+      }),
+    };
+  },
+};
+
+console.log([...range]); // ✅ [1, 2, 3, 4, 5]
