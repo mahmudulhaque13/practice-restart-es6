@@ -227,13 +227,29 @@
 
 // Lazy Evaluation Generator
 // infinite number generator বানাও।
-function* infinite() {
-  let i = 0;
-  while (true) yield i++;
+// function* infinite() {
+//   let i = 0;
+//   while (true) yield i++;
+// }
+
+// const gen = infinite();
+
+// console.log(gen.next().value); // 0
+// console.log(gen.next().value); // 1
+// console.log(gen.next().value); // 2
+
+// Observer Pattern (Pure JS)
+// subscribe / notify system বানাও।
+class Subject {
+  constructor() {
+    this.observers = [];
+  }
+
+  subscribe(fn) {
+    this.observers.push(fn);
+  }
+
+  notify(data) {
+    this.observers.forEach((fn) => fn(data));
+  }
 }
-
-const gen = infinite();
-
-console.log(gen.next().value); // 0
-console.log(gen.next().value); // 1
-console.log(gen.next().value); // 2
