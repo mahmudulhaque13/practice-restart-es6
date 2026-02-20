@@ -208,19 +208,32 @@
 
 // Immutable Deep Update
 // nested object update করো without mutation।
-const state = {
-  user: {
-    profile: { name: "Rahim", age: 25 },
-  },
-};
+// const state = {
+//   user: {
+//     profile: { name: "Rahim", age: 25 },
+//   },
+// };
 
-const newState = {
-  ...state,
-  user: {
-    ...state.user,
-    profile: {
-      ...state.user.profile,
-      age: 26,
-    },
-  },
-};
+// const newState = {
+//   ...state,
+//   user: {
+//     ...state.user,
+//     profile: {
+//       ...state.user.profile,
+//       age: 26,
+//     },
+//   },
+// };
+
+// Lazy Evaluation Generator
+// infinite number generator বানাও।
+function* infinite() {
+  let i = 0;
+  while (true) yield i++;
+}
+
+const gen = infinite();
+
+console.log(gen.next().value); // 0
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
