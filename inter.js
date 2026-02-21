@@ -17,7 +17,14 @@
 // console.log(count); // 3
 
 // একটি string এর length বের করো
-const text = "Hello World";
-const length = text.length;
+// const text = "Hello World";
+// const length = text.length;
 
-console.log(length); // 11
+// console.log(length); // 11
+
+// string এর মধ্যে নির্দিষ্ট word আছে কিনা চেক করো
+const sentence = "I love JavaScript programming";
+const word = "JavaScript";
+
+const result = sentence.includes(word);
+console.log(result); // true
