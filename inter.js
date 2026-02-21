@@ -43,10 +43,21 @@
 // console.log(reversed); // "dlroW olleH"
 
 // string palindrome কিনা চেক করো
-function isPalindrome(str) {
-  const reversed = str.split("").reverse().join("");
-  return str === reversed;
-}
+// function isPalindrome(str) {
+//   const reversed = str.split("").reverse().join("");
+//   return str === reversed;
+// }
 
-console.log(isPalindrome("madam")); // true
-console.log(isPalindrome("hello")); // false
+// console.log(isPalindrome("madam")); // true
+// console.log(isPalindrome("hello")); // false
+
+// object এর উপর loop চালাও
+const user = {
+  name: "Mahmud",
+  age: 25,
+  role: "admin",
+};
+
+for (let key in user) {
+  console.log(key, user[key]);
+}
