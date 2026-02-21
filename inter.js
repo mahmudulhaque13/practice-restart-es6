@@ -37,7 +37,16 @@
 // // ["I", "love", "JavaScript", "programming"]
 
 // string reverse করো
-const text = "Hello World";
+// const text = "Hello World";
 
-const reversed = text.split("").reverse().join("");
-console.log(reversed); // "dlroW olleH"
+// const reversed = text.split("").reverse().join("");
+// console.log(reversed); // "dlroW olleH"
+
+// string palindrome কিনা চেক করো
+function isPalindrome(str) {
+  const reversed = str.split("").reverse().join("");
+  return str === reversed;
+}
+
+console.log(isPalindrome("madam")); // true
+console.log(isPalindrome("hello")); // false
