@@ -23,8 +23,15 @@
 // console.log(length); // 11
 
 // string এর মধ্যে নির্দিষ্ট word আছে কিনা চেক করো
-const sentence = "I love JavaScript programming";
-const word = "JavaScript";
+// const sentence = "I love JavaScript programming";
+// const word = "JavaScript";
 
-const result = sentence.includes(word);
-console.log(result); // true
+// const result = sentence.includes(word);
+// console.log(result); // true
+
+// একটি sentence থেকে সব word আলাদা করো
+const sentence = "I love JavaScript programming";
+
+const words = sentence.split(" ");
+console.log(words);
+// ["I", "love", "JavaScript", "programming"]
