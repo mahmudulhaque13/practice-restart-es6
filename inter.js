@@ -30,8 +30,14 @@
 // console.log(result); // true
 
 // একটি sentence থেকে সব word আলাদা করো
-const sentence = "I love JavaScript programming";
+// const sentence = "I love JavaScript programming";
 
-const words = sentence.split(" ");
-console.log(words);
-// ["I", "love", "JavaScript", "programming"]
+// const words = sentence.split(" ");
+// console.log(words);
+// // ["I", "love", "JavaScript", "programming"]
+
+// string reverse করো
+const text = "Hello World";
+
+const reversed = text.split("").reverse().join("");
+console.log(reversed); // "dlroW olleH"
