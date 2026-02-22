@@ -26,11 +26,22 @@
 // console.log(arraySum([1, "a", 3, null, 5])); // 9
 
 // string reverse করার function লেখো
-function reverseString(str) {
-  if (typeof str !== "string") {
-    return "Please provide a string";
+// function reverseString(str) {
+//   if (typeof str !== "string") {
+//     return "Please provide a string";
+//   }
+//   return str.split("").reverse().join("");
+// }
+
+// console.log(reverseString(123)); // Please provide a string
+
+// unit convert করার function লেখো (inch → feet)
+function inchToFeet(inch) {
+  if (typeof inch !== "number" || inch < 0) {
+    return "Invalid input";
   }
-  return str.split("").reverse().join("");
+  return inch / 12;
 }
 
-console.log(reverseString(123)); // Please provide a string
+console.log(inchToFeet(48)); // 4
+console.log(inchToFeet("12")); // Invalid input
