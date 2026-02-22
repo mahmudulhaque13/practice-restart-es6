@@ -52,12 +52,12 @@
 // console.log(isPalindrome("hello")); // false
 
 // object এর উপর loop চালাও
-const user = {
-  name: "Mahmud",
-  age: 25,
-  role: "admin",
-};
+// const user = {
+//   name: "Mahmud",
+//   age: 25,
+//   role: "admin",
+// };
 
-for (let key in user) {
-  console.log(key, user[key]);
-}
+// for (let key in user) {
+//   console.log(key, user[key]);
+// }
