@@ -36,12 +36,24 @@
 // console.log(reverseString(123)); // Please provide a string
 
 // unit convert করার function লেখো (inch → feet)
-function inchToFeet(inch) {
-  if (typeof inch !== "number" || inch < 0) {
-    return "Invalid input";
-  }
-  return inch / 12;
-}
+// function inchToFeet(inch) {
+//   if (typeof inch !== "number" || inch < 0) {
+//     return "Invalid input";
+//   }
+//   return inch / 12;
+// }
 
-console.log(inchToFeet(48)); // 4
-console.log(inchToFeet("12")); // Invalid input
+// console.log(inchToFeet(48)); // 4
+// console.log(inchToFeet("12")); // Invalid input
+
+// calculator function বানাও (add, sub, mul, div)
+const calculator = {
+  add: (a, b) => a + b,
+  sub: (a, b) => a - b,
+  mul: (a, b) => a * b,
+  div: (a, b) => (b === 0 ? "Division by zero not allowed" : a / b),
+};
+
+// ব্যবহার
+console.log(calculator.add(6, 3)); // 9
+console.log(calculator.mul(6, 3)); // 18
