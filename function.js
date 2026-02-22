@@ -8,7 +8,19 @@
 // console.log(result); // 30
 
 // even/odd চেক করার function লেখো
-const checkEvenOdd = (num) => (num % 2 === 0 ? "Even" : "Odd");
+// const checkEvenOdd = (num) => (num % 2 === 0 ? "Even" : "Odd");
 
-console.log(checkEvenOdd(4)); // Even
-console.log(checkEvenOdd(9)); // Odd
+// console.log(checkEvenOdd(4)); // Even
+// console.log(checkEvenOdd(9)); // Odd
+
+// array এর সব সংখ্যার sum বের করার function লেখো
+function arraySum(arr) {
+  return arr.reduce((sum, val) => {
+    if (typeof val === "number") {
+      sum += val;
+    }
+    return sum;
+  }, 0);
+}
+
+console.log(arraySum([1, "a", 3, null, 5])); // 9
