@@ -14,13 +14,23 @@
 // console.log(checkEvenOdd(9)); // Odd
 
 // array এর সব সংখ্যার sum বের করার function লেখো
-function arraySum(arr) {
-  return arr.reduce((sum, val) => {
-    if (typeof val === "number") {
-      sum += val;
-    }
-    return sum;
-  }, 0);
+// function arraySum(arr) {
+//   return arr.reduce((sum, val) => {
+//     if (typeof val === "number") {
+//       sum += val;
+//     }
+//     return sum;
+//   }, 0);
+// }
+
+// console.log(arraySum([1, "a", 3, null, 5])); // 9
+
+// string reverse করার function লেখো
+function reverseString(str) {
+  if (typeof str !== "string") {
+    return "Please provide a string";
+  }
+  return str.split("").reverse().join("");
 }
 
-console.log(arraySum([1, "a", 3, null, 5])); // 9
+console.log(reverseString(123)); // Please provide a string
