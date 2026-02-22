@@ -47,13 +47,19 @@
 // console.log(inchToFeet("12")); // Invalid input
 
 // calculator function বানাও (add, sub, mul, div)
-const calculator = {
-  add: (a, b) => a + b,
-  sub: (a, b) => a - b,
-  mul: (a, b) => a * b,
-  div: (a, b) => (b === 0 ? "Division by zero not allowed" : a / b),
-};
+// const calculator = {
+//   add: (a, b) => a + b,
+//   sub: (a, b) => a - b,
+//   mul: (a, b) => a * b,
+//   div: (a, b) => (b === 0 ? "Division by zero not allowed" : a / b),
+// };
 
-// ব্যবহার
-console.log(calculator.add(6, 3)); // 9
-console.log(calculator.mul(6, 3)); // 18
+// // ব্যবহার
+// console.log(calculator.add(6, 3)); // 9
+// console.log(calculator.mul(6, 3)); // 18
+
+// array এর average বের করো
+const arrayAverage = (arr) =>
+  arr.reduce((sum, num) => sum + num, 0) / arr.length;
+
+console.log(arrayAverage([5, 15, 25])); // 15
