@@ -74,13 +74,24 @@
 // Output: [1, 2, 3, 4, 5]
 
 // object এর ভিতরে nested object access করো
-const user = {
-  name: "Mahmud",
+// const user = {
+//   name: "Mahmud",
+//   address: {
+//     city: "Dhaka",
+//     country: "Bangladesh",
+//   },
+// };
+
+// console.log(user.address.city); // Dhaka
+// console.log(user.address.country); // Bangladesh
+
+// Optional chaining
+const person = {
+  name: "Rahim",
   address: {
-    city: "Dhaka",
-    country: "Bangladesh",
+    city: "Chattogram",
   },
 };
 
-console.log(user.address.city); // Dhaka
-console.log(user.address.country); // Bangladesh
+console.log(person.address?.city); // Chattogram
+console.log(person.contact?.phone); // undefined (error হবে না)
