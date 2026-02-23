@@ -65,10 +65,22 @@
 // console.log(arrayAverage([5, 15, 25])); // 15
 
 // array থেকে শুধু unique value রাখো
-function uniqueArray(arr) {
-  return [...new Set(arr)];
-}
+// function uniqueArray(arr) {
+//   return [...new Set(arr)];
+// }
 
-// ব্যবহার
-console.log(uniqueArray([1, 2, 2, 3, 4, 4, 5]));
+// // ব্যবহার
+// console.log(uniqueArray([1, 2, 2, 3, 4, 4, 5]));
 // Output: [1, 2, 3, 4, 5]
+
+// object এর ভিতরে nested object access করো
+const user = {
+  name: "Mahmud",
+  address: {
+    city: "Dhaka",
+    country: "Bangladesh",
+  },
+};
+
+console.log(user.address.city); // Dhaka
+console.log(user.address.country); // Bangladesh
