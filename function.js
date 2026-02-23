@@ -86,12 +86,23 @@
 // console.log(user.address.country); // Bangladesh
 
 // Optional chaining
-const person = {
-  name: "Rahim",
-  address: {
-    city: "Chattogram",
-  },
-};
+// const person = {
+//   name: "Rahim",
+//   address: {
+//     city: "Chattogram",
+//   },
+// };
 
-console.log(person.address?.city); // Chattogram
-console.log(person.contact?.phone); // undefined (error হবে না)
+// console.log(person.address?.city); // Chattogram
+// console.log(person.contact?.phone); // undefined (error হবে না)
+
+// function এর ভিতরে function ব্যবহার করো
+function calculateTotal(price, tax) {
+  function addTax(amount) {
+    return amount + amount * tax;
+  }
+
+  return addTax(price);
+}
+
+console.log(calculateTotal(100, 0.1)); // 110
