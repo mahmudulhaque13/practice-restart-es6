@@ -97,12 +97,20 @@
 // console.log(person.contact?.phone); // undefined (error হবে না)
 
 // function এর ভিতরে function ব্যবহার করো
-function calculateTotal(price, tax) {
-  function addTax(amount) {
-    return amount + amount * tax;
-  }
+// function calculateTotal(price, tax) {
+//   function addTax(amount) {
+//     return amount + amount * tax;
+//   }
 
-  return addTax(price);
+//   return addTax(price);
+// }
+
+// console.log(calculateTotal(100, 0.1)); // 110
+
+// user input validate করো (number কিনা চেক)
+function isNumber(input) {
+  return typeof input === "number";
 }
 
-console.log(calculateTotal(100, 0.1)); // 110
+console.log(isNumber(10)); // true
+console.log(isNumber("10")); // false
