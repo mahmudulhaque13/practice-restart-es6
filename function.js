@@ -59,7 +59,16 @@
 // console.log(calculator.mul(6, 3)); // 18
 
 // array এর average বের করো
-const arrayAverage = (arr) =>
-  arr.reduce((sum, num) => sum + num, 0) / arr.length;
+// const arrayAverage = (arr) =>
+//   arr.reduce((sum, num) => sum + num, 0) / arr.length;
 
-console.log(arrayAverage([5, 15, 25])); // 15
+// console.log(arrayAverage([5, 15, 25])); // 15
+
+// array থেকে শুধু unique value রাখো
+function uniqueArray(arr) {
+  return [...new Set(arr)];
+}
+
+// ব্যবহার
+console.log(uniqueArray([1, 2, 2, 3, 4, 4, 5]));
+// Output: [1, 2, 3, 4, 5]
