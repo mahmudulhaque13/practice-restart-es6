@@ -63,13 +63,19 @@
 // }
 
 // sentence থেকে সবচেয়ে বড় word বের করো।
-const text = "JavaScript makes web development powerful";
+// const text = "JavaScript makes web development powerful";
 
-const longestWord = text
-  .split(" ")
-  .reduce(
-    (longest, word) => (word.length > longest.length ? word : longest),
-    "",
-  );
+// const longestWord = text
+//   .split(" ")
+//   .reduce(
+//     (longest, word) => (word.length > longest.length ? word : longest),
+//     "",
+//   );
 
-console.log(longestWord); // development
+// console.log(longestWord); // development
+
+// দুইটা string anagram কিনা চেক করো।
+const isAnagram = (a, b) =>
+  a.split("").sort().join("") === b.split("").sort().join("");
+
+console.log(isAnagram("listen", "silent")); // true
