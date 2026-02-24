@@ -99,14 +99,23 @@
 // console.log("1 second later");
 
 // একটি string-এ প্রথম যে character repeat হয় না, সেটা বের করো।
-const str = "aabbccdeff";
-const firstUnique = (str) => {
-  const freq = {};
+// const str = "aabbccdeff";
+// const firstUnique = (str) => {
+//   const freq = {};
 
-  for (let ch of str) freq[ch] = (freq[ch] || 0) + 1;
-  for (let ch of str) if (freq[ch] === 1) return ch;
+//   for (let ch of str) freq[ch] = (freq[ch] || 0) + 1;
+//   for (let ch of str) if (freq[ch] === 1) return ch;
 
-  return null;
+//   return null;
+// };
+
+// console.log(firstUnique("aabbccdeff")); // d
+
+// Rotate Array (Right)
+// rotate by k steps
+rotate([1, 2, 3, 4, 5], 2);
+// [4,5,1,2,3]
+const rotate = (arr, k) => {
+  k %= arr.length;
+  return [...arr.slice(-k), ...arr.slice(0, -k)];
 };
-
-console.log(firstUnique("aabbccdeff")); // d
