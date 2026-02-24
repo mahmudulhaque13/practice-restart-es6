@@ -75,7 +75,19 @@
 // console.log(longestWord); // development
 
 // দুইটা string anagram কিনা চেক করো।
-const isAnagram = (a, b) =>
-  a.split("").sort().join("") === b.split("").sort().join("");
+// const isAnagram = (a, b) =>
+//   a.split("").sort().join("") === b.split("").sort().join("");
 
-console.log(isAnagram("listen", "silent")); // true
+// console.log(isAnagram("listen", "silent")); // true
+
+// element frequency অনুযায়ী sort করো।
+const freqSort = (arr) => {
+  const freq = arr.reduce((a, v) => {
+    a[v] = (a[v] || 0) + 1;
+    return a;
+  }, {});
+
+  return arr.sort((a, b) => freq[b] - freq[a]);
+};
+
+console.log(freqSort([1, 1, 2, 2, 2, 3]));
