@@ -81,13 +81,19 @@
 // console.log(isAnagram("listen", "silent")); // true
 
 // element frequency অনুযায়ী sort করো।
-const freqSort = (arr) => {
-  const freq = arr.reduce((a, v) => {
-    a[v] = (a[v] || 0) + 1;
-    return a;
-  }, {});
+// const freqSort = (arr) => {
+//   const freq = arr.reduce((a, v) => {
+//     a[v] = (a[v] || 0) + 1;
+//     return a;
+//   }, {});
 
-  return arr.sort((a, b) => freq[b] - freq[a]);
-};
+//   return arr.sort((a, b) => freq[b] - freq[a]);
+// };
 
-console.log(freqSort([1, 1, 2, 2, 2, 3]));
+// console.log(freqSort([1, 1, 2, 2, 2, 3]));
+
+// Delay Function
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+await delay(1000);
+console.log("1 second later");
