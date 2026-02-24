@@ -108,9 +108,9 @@
 // console.log(calculateTotal(100, 0.1)); // 110
 
 // user input validate করো (number কিনা চেক)
-function isNumber(input) {
-  return typeof input === "number";
-}
+// function isNumber(input) {
+//   return typeof input === "number";
+// }
 
-console.log(isNumber(10)); // true
-console.log(isNumber("10")); // false
+// console.log(isNumber(10)); // true
+// console.log(isNumber("10")); // false

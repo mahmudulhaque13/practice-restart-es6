@@ -61,3 +61,15 @@
 // for (let key in user) {
 //   console.log(key, user[key]);
 // }
+
+// sentence থেকে সবচেয়ে বড় word বের করো।
+const text = "JavaScript makes web development powerful";
+
+const longestWord = text
+  .split(" ")
+  .reduce(
+    (longest, word) => (word.length > longest.length ? word : longest),
+    "",
+  );
+
+console.log(longestWord); // development
