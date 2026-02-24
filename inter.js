@@ -93,7 +93,20 @@
 // console.log(freqSort([1, 1, 2, 2, 2, 3]));
 
 // Delay Function
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-await delay(1000);
-console.log("1 second later");
+// await delay(1000);
+// console.log("1 second later");
+
+// একটি string-এ প্রথম যে character repeat হয় না, সেটা বের করো।
+const str = "aabbccdeff";
+const firstUnique = (str) => {
+  const freq = {};
+
+  for (let ch of str) freq[ch] = (freq[ch] || 0) + 1;
+  for (let ch of str) if (freq[ch] === 1) return ch;
+
+  return null;
+};
+
+console.log(firstUnique("aabbccdeff")); // d
