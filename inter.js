@@ -121,14 +121,26 @@
 // };
 
 // State Update Without Mutation
-let users = [
-  { id: 1, name: "Rahim", active: false },
-  { id: 2, name: "Karim", active: false },
-];
+// let users = [
+//   { id: 1, name: "Rahim", active: false },
+//   { id: 2, name: "Karim", active: false },
+// ];
 
-const updatedUsers = users.map((user) =>
-  user.id === 2 ? { ...user, active: true } : user,
-);
+// const updatedUsers = users.map((user) =>
+//   user.id === 2 ? { ...user, active: true } : user,
+// );
 
-console.log("Before:", users);
-console.log("After:", updatedUsers);
+// console.log("Before:", users);
+// console.log("After:", updatedUsers);
+
+// Toggle Checkbox Logic
+let selectedIds = [1, 2];
+
+const toggle = (arr, id) =>
+  arr.includes(id) ? arr.filter((x) => x !== id) : [...arr, id];
+
+selectedIds = toggle(selectedIds, 2);
+console.log(selectedIds); // [1]
+
+selectedIds = toggle(selectedIds, 3);
+console.log(selectedIds); // [1,3]
