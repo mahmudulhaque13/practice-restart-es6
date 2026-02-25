@@ -134,13 +134,24 @@
 // console.log("After:", updatedUsers);
 
 // Toggle Checkbox Logic
-let selectedIds = [1, 2];
+// let selectedIds = [1, 2];
 
-const toggle = (arr, id) =>
-  arr.includes(id) ? arr.filter((x) => x !== id) : [...arr, id];
+// const toggle = (arr, id) =>
+//   arr.includes(id) ? arr.filter((x) => x !== id) : [...arr, id];
 
-selectedIds = toggle(selectedIds, 2);
-console.log(selectedIds); // [1]
+// selectedIds = toggle(selectedIds, 2);
+// console.log(selectedIds); // [1]
 
-selectedIds = toggle(selectedIds, 3);
-console.log(selectedIds); // [1,3]
+// selectedIds = toggle(selectedIds, 3);
+// console.log(selectedIds); // [1,3]
+
+// Controlled Input Logic
+let form = { name: "", email: "" };
+
+const handleChange = (name, value) => {
+  form = { ...form, [name]: value };
+  console.log(form);
+};
+
+handleChange("name", "Rahim");
+handleChange("email", "rahim@gmail.com");
