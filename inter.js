@@ -146,12 +146,22 @@
 // console.log(selectedIds); // [1,3]
 
 // Controlled Input Logic
-let form = { name: "", email: "" };
+// let form = { name: "", email: "" };
 
-const handleChange = (name, value) => {
-  form = { ...form, [name]: value };
-  console.log(form);
-};
+// const handleChange = (name, value) => {
+//   form = { ...form, [name]: value };
+//   console.log(form);
+// };
 
-handleChange("name", "Rahim");
-handleChange("email", "rahim@gmail.com");
+// handleChange("name", "Rahim");
+// handleChange("email", "rahim@gmail.com");
+
+// Derived State (Cart Total)
+const cart = [
+  { price: 100, qty: 2 },
+  { price: 50, qty: 1 },
+];
+
+const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+console.log("Total price:", total); // 250
