@@ -187,20 +187,37 @@
 // console.log(paginate(items, 2, 5)); // [6..10]
 
 // Debounce (Search Input Simulation)
-const debounce = (fn, delay) => {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), delay);
-  };
+// const debounce = (fn, delay) => {
+//   let timer;
+//   return (...args) => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => fn(...args), delay);
+//   };
+// };
+
+// const searchApi = (text) => {
+//   console.log("API called with:", text);
+// };
+
+// const debouncedSearch = debounce(searchApi, 500);
+
+// debouncedSearch("r");
+// debouncedSearch("ra");
+// debouncedSearch("rahim");
+
+// Optimistic UI Update
+let liked = false;
+
+const likePost = async () => {
+  liked = true;
+  console.log("Liked instantly:", liked);
+
+  try {
+    throw new Error("API failed");
+  } catch {
+    liked = false;
+    console.log("Rollback:", liked);
+  }
 };
 
-const searchApi = (text) => {
-  console.log("API called with:", text);
-};
-
-const debouncedSearch = debounce(searchApi, 500);
-
-debouncedSearch("r");
-debouncedSearch("ra");
-debouncedSearch("rahim");
+likePost();
