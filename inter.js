@@ -113,9 +113,22 @@
 
 // Rotate Array (Right)
 // rotate by k steps
-rotate([1, 2, 3, 4, 5], 2);
-// [4,5,1,2,3]
-const rotate = (arr, k) => {
-  k %= arr.length;
-  return [...arr.slice(-k), ...arr.slice(0, -k)];
-};
+// rotate([1, 2, 3, 4, 5], 2);
+// // [4,5,1,2,3]
+// const rotate = (arr, k) => {
+//   k %= arr.length;
+//   return [...arr.slice(-k), ...arr.slice(0, -k)];
+// };
+
+// State Update Without Mutation
+let users = [
+  { id: 1, name: "Rahim", active: false },
+  { id: 2, name: "Karim", active: false },
+];
+
+const updatedUsers = users.map((user) =>
+  user.id === 2 ? { ...user, active: true } : user,
+);
+
+console.log("Before:", users);
+console.log("After:", updatedUsers);
