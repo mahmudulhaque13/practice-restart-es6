@@ -178,10 +178,29 @@
 // console.log(filtered);
 
 // Pagination Logic
-const items = Array.from({ length: 20 }, (_, i) => i + 1);
+// const items = Array.from({ length: 20 }, (_, i) => i + 1);
 
-const paginate = (items, page, size) =>
-  items.slice((page - 1) * size, page * size);
+// const paginate = (items, page, size) =>
+//   items.slice((page - 1) * size, page * size);
 
-console.log(paginate(items, 1, 5)); // [1..5]
-console.log(paginate(items, 2, 5)); // [6..10]
+// console.log(paginate(items, 1, 5)); // [1..5]
+// console.log(paginate(items, 2, 5)); // [6..10]
+
+// Debounce (Search Input Simulation)
+const debounce = (fn, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+};
+
+const searchApi = (text) => {
+  console.log("API called with:", text);
+};
+
+const debouncedSearch = debounce(searchApi, 500);
+
+debouncedSearch("r");
+debouncedSearch("ra");
+debouncedSearch("rahim");
