@@ -167,12 +167,21 @@
 // console.log("Total price:", total); // 250
 
 // Search Filter Logic
-const users = [{ name: "Rahim" }, { name: "Karim" }, { name: "Hasan" }];
+// const users = [{ name: "Rahim" }, { name: "Karim" }, { name: "Hasan" }];
 
-const search = "ra";
+// const search = "ra";
 
-const filtered = users.filter((u) =>
-  u.name.toLowerCase().includes(search.toLowerCase()),
-);
+// const filtered = users.filter((u) =>
+//   u.name.toLowerCase().includes(search.toLowerCase()),
+// );
 
-console.log(filtered);
+// console.log(filtered);
+
+// Pagination Logic
+const items = Array.from({ length: 20 }, (_, i) => i + 1);
+
+const paginate = (items, page, size) =>
+  items.slice((page - 1) * size, page * size);
+
+console.log(paginate(items, 1, 5)); // [1..5]
+console.log(paginate(items, 2, 5)); // [6..10]
