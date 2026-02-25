@@ -157,11 +157,22 @@
 // handleChange("email", "rahim@gmail.com");
 
 // Derived State (Cart Total)
-const cart = [
-  { price: 100, qty: 2 },
-  { price: 50, qty: 1 },
-];
+// const cart = [
+//   { price: 100, qty: 2 },
+//   { price: 50, qty: 1 },
+// ];
 
-const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+// const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
-console.log("Total price:", total); // 250
+// console.log("Total price:", total); // 250
+
+// Search Filter Logic
+const users = [{ name: "Rahim" }, { name: "Karim" }, { name: "Hasan" }];
+
+const search = "ra";
+
+const filtered = users.filter((u) =>
+  u.name.toLowerCase().includes(search.toLowerCase()),
+);
+
+console.log(filtered);
