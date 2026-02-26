@@ -223,24 +223,47 @@
 // likePost();
 
 // Nested State Update (Immutable)
-let state = {
-  user: {
-    profile: {
-      name: "Rahim",
-      age: 25,
-    },
-  },
+// let state = {
+//   user: {
+//     profile: {
+//       name: "Rahim",
+//       age: 25,
+//     },
+//   },
+// };
+
+// state = {
+//   ...state,
+//   user: {
+//     ...state.user,
+//     profile: {
+//       ...state.user.profile,
+//       name: "Karim",
+//     },
+//   },
+// };
+
+// console.log(state);
+
+// useReducer Logic Simulation
+let state = [];
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ADD":
+      return [...state, action.payload];
+    case "REMOVE":
+      return state.filter((x) => x.id !== action.payload);
+    default:
+      return state;
+  }
 };
 
-state = {
-  ...state,
-  user: {
-    ...state.user,
-    profile: {
-      ...state.user.profile,
-      name: "Karim",
-    },
-  },
-};
+state = reducer(state, { type: "ADD", payload: { id: 1, name: "Task 1" } });
+console.log(state);
 
+state = reducer(state, { type: "ADD", payload: { id: 2, name: "Task 2" } });
+console.log(state);
+
+state = reducer(state, { type: "REMOVE", payload: 1 });
 console.log(state);
