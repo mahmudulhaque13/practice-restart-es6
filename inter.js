@@ -287,8 +287,22 @@
 // console.log(memo(6));
 
 // List Key Problem (Why index is bad)
-let items = ["A", "B", "C"];
-console.log("Initial:", items);
+// let items = ["A", "B", "C"];
+// console.log("Initial:", items);
 
-items.splice(0, 1);
-console.log("After remove:", items);
+// items.splice(0, 1);
+// console.log("After remove:", items);
+
+// Custom Hook Logic (Toggle)
+const useToggle = (initial) => {
+  let value = initial;
+  const toggle = () => {
+    value = !value;
+    console.log("Toggled:", value);
+  };
+  return toggle;
+};
+
+const toggle = useToggle(false);
+toggle();
+toggle();
