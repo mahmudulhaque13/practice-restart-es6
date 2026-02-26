@@ -246,24 +246,42 @@
 // console.log(state);
 
 // useReducer Logic Simulation
-let state = [];
+// let state = [];
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD":
-      return [...state, action.payload];
-    case "REMOVE":
-      return state.filter((x) => x.id !== action.payload);
-    default:
-      return state;
-  }
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "ADD":
+//       return [...state, action.payload];
+//     case "REMOVE":
+//       return state.filter((x) => x.id !== action.payload);
+//     default:
+//       return state;
+//   }
+// };
+
+// state = reducer(state, { type: "ADD", payload: { id: 1, name: "Task 1" } });
+// console.log(state);
+
+// state = reducer(state, { type: "ADD", payload: { id: 2, name: "Task 2" } });
+// console.log(state);
+
+// state = reducer(state, { type: "REMOVE", payload: 1 });
+// console.log(state);
+
+// Memoization Logic (useMemo idea)
+const heavyCalc = (n) => {
+  console.log("Calculating...");
+  return n * 2;
 };
 
-state = reducer(state, { type: "ADD", payload: { id: 1, name: "Task 1" } });
-console.log(state);
+let cache;
 
-state = reducer(state, { type: "ADD", payload: { id: 2, name: "Task 2" } });
-console.log(state);
+const memo = (n) => {
+  if (cache === n) return "cached";
+  cache = n;
+  return heavyCalc(n);
+};
 
-state = reducer(state, { type: "REMOVE", payload: 1 });
-console.log(state);
+console.log(memo(5));
+console.log(memo(5));
+console.log(memo(6));
