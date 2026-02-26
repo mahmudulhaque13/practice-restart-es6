@@ -269,19 +269,26 @@
 // console.log(state);
 
 // Memoization Logic (useMemo idea)
-const heavyCalc = (n) => {
-  console.log("Calculating...");
-  return n * 2;
-};
+// const heavyCalc = (n) => {
+//   console.log("Calculating...");
+//   return n * 2;
+// };
 
-let cache;
+// let cache;
 
-const memo = (n) => {
-  if (cache === n) return "cached";
-  cache = n;
-  return heavyCalc(n);
-};
+// const memo = (n) => {
+//   if (cache === n) return "cached";
+//   cache = n;
+//   return heavyCalc(n);
+// };
 
-console.log(memo(5));
-console.log(memo(5));
-console.log(memo(6));
+// console.log(memo(5));
+// console.log(memo(5));
+// console.log(memo(6));
+
+// List Key Problem (Why index is bad)
+let items = ["A", "B", "C"];
+console.log("Initial:", items);
+
+items.splice(0, 1);
+console.log("After remove:", items);
