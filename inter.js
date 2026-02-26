@@ -206,18 +206,41 @@
 // debouncedSearch("rahim");
 
 // Optimistic UI Update
-let liked = false;
+// let liked = false;
 
-const likePost = async () => {
-  liked = true;
-  console.log("Liked instantly:", liked);
+// const likePost = async () => {
+//   liked = true;
+//   console.log("Liked instantly:", liked);
 
-  try {
-    throw new Error("API failed");
-  } catch {
-    liked = false;
-    console.log("Rollback:", liked);
-  }
+//   try {
+//     throw new Error("API failed");
+//   } catch {
+//     liked = false;
+//     console.log("Rollback:", liked);
+//   }
+// };
+
+// likePost();
+
+// Nested State Update (Immutable)
+let state = {
+  user: {
+    profile: {
+      name: "Rahim",
+      age: 25,
+    },
+  },
 };
 
-likePost();
+state = {
+  ...state,
+  user: {
+    ...state.user,
+    profile: {
+      ...state.user.profile,
+      name: "Karim",
+    },
+  },
+};
+
+console.log(state);
