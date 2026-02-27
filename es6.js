@@ -63,18 +63,31 @@
 // useEffectSim(2); // re-fetch
 
 // Cleanup Logic (useEffect return)
-let timer;
+// let timer;
 
-const startTimer = () => {
-  timer = setInterval(() => {
-    console.log("Running...");
-  }, 1000);
+// const startTimer = () => {
+//   timer = setInterval(() => {
+//     console.log("Running...");
+//   }, 1000);
+// };
+
+// const cleanup = () => {
+//   clearInterval(timer);
+//   console.log("Cleaned up");
+// };
+
+// startTimer();
+// setTimeout(cleanup, 3000);
+
+// Prevent Infinite Loop (State Dependency)
+let value = 0;
+
+const setValue = (v) => {
+  if (v !== value) {
+    value = v;
+    console.log("Updated:", value);
+  }
 };
 
-const cleanup = () => {
-  clearInterval(timer);
-  console.log("Cleaned up");
-};
-
-startTimer();
-setTimeout(cleanup, 3000);
+setValue(1);
+setValue(1); // no infinite loop
