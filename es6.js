@@ -48,16 +48,33 @@
 // console.log(validate(form));
 
 // Dependent useEffect Logic (Manual Simulation)
-let prevId;
-const fetchData = (id) => console.log("Fetching user:", id);
+// let prevId;
+// const fetchData = (id) => console.log("Fetching user:", id);
 
-const useEffectSim = (id) => {
-  if (id !== prevId) {
-    fetchData(id);
-    prevId = id;
-  }
+// const useEffectSim = (id) => {
+//   if (id !== prevId) {
+//     fetchData(id);
+//     prevId = id;
+//   }
+// };
+
+// useEffectSim(1);
+// useEffectSim(1); // no call
+// useEffectSim(2); // re-fetch
+
+// Cleanup Logic (useEffect return)
+let timer;
+
+const startTimer = () => {
+  timer = setInterval(() => {
+    console.log("Running...");
+  }, 1000);
 };
 
-useEffectSim(1);
-useEffectSim(1); // no call
-useEffectSim(2); // re-fetch
+const cleanup = () => {
+  clearInterval(timer);
+  console.log("Cleaned up");
+};
+
+startTimer();
+setTimeout(cleanup, 3000);
