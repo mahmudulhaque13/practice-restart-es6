@@ -33,16 +33,31 @@
 // setTheme("dark");
 
 // Form Validation Logic (Before Submit)
-let form = { email: "", password: "" };
+// let form = { email: "", password: "" };
 
-const validate = (form) => {
-  if (!form.email) return "Email required";
-  if (!form.password) return "Password required";
-  return "Valid";
+// const validate = (form) => {
+//   if (!form.email) return "Email required";
+//   if (!form.password) return "Password required";
+//   return "Valid";
+// };
+
+// form.email = "test@gmail.com";
+// console.log(validate(form));
+
+// form.password = "123456";
+// console.log(validate(form));
+
+// Dependent useEffect Logic (Manual Simulation)
+let prevId;
+const fetchData = (id) => console.log("Fetching user:", id);
+
+const useEffectSim = (id) => {
+  if (id !== prevId) {
+    fetchData(id);
+    prevId = id;
+  }
 };
 
-form.email = "test@gmail.com";
-console.log(validate(form));
-
-form.password = "123456";
-console.log(validate(form));
+useEffectSim(1);
+useEffectSim(1); // no call
+useEffectSim(2); // re-fetch
