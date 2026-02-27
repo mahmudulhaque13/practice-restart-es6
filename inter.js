@@ -294,15 +294,15 @@
 // console.log("After remove:", items);
 
 // Custom Hook Logic (Toggle)
-const useToggle = (initial) => {
-  let value = initial;
-  const toggle = () => {
-    value = !value;
-    console.log("Toggled:", value);
-  };
-  return toggle;
-};
+// const useToggle = (initial) => {
+//   let value = initial;
+//   const toggle = () => {
+//     value = !value;
+//     console.log("Toggled:", value);
+//   };
+//   return toggle;
+// };
 
-const toggle = useToggle(false);
-toggle();
-toggle();
+// const toggle = useToggle(false);
+// toggle();
+// toggle();
