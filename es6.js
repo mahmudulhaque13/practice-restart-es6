@@ -18,16 +18,31 @@
 // console.log("Correct way:", count); // 2 ✅
 
 // Conditional State Update (Avoid Unnecessary Render)
-let theme = "light";
+// let theme = "light";
 
-const setTheme = (newTheme) => {
-  if (theme !== newTheme) {
-    theme = newTheme;
-    console.log("Theme changed:", theme);
-  } else {
-    console.log("No re-render");
-  }
+// const setTheme = (newTheme) => {
+//   if (theme !== newTheme) {
+//     theme = newTheme;
+//     console.log("Theme changed:", theme);
+//   } else {
+//     console.log("No re-render");
+//   }
+// };
+
+// setTheme("light");
+// setTheme("dark");
+
+// Form Validation Logic (Before Submit)
+let form = { email: "", password: "" };
+
+const validate = (form) => {
+  if (!form.email) return "Email required";
+  if (!form.password) return "Password required";
+  return "Valid";
 };
 
-setTheme("light");
-setTheme("dark");
+form.email = "test@gmail.com";
+console.log(validate(form));
+
+form.password = "123456";
+console.log(validate(form));
