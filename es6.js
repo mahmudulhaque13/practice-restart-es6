@@ -80,14 +80,33 @@
 // setTimeout(cleanup, 3000);
 
 // Prevent Infinite Loop (State Dependency)
-let value = 0;
+// let value = 0;
 
-const setValue = (v) => {
-  if (v !== value) {
-    value = v;
-    console.log("Updated:", value);
-  }
+// const setValue = (v) => {
+//   if (v !== value) {
+//     value = v;
+//     console.log("Updated:", value);
+//   }
+// };
+
+// setValue(1);
+// setValue(1); // no infinite loop
+
+// Memoized Callback (useCallback idea)
+const createCallback = () => {
+  let cache;
+  return (fn) => {
+    if (!cache) {
+      cache = fn;
+      console.log("Callback created");
+    }
+    return cache;
+  };
 };
 
-setValue(1);
-setValue(1); // no infinite loop
+const memoizeCallback = createCallback();
+
+const cb1 = memoizeCallback(() => console.log("Hello"));
+const cb2 = memoizeCallback(() => console.log("Hello"));
+
+console.log(cb1 === cb2); // true
