@@ -126,23 +126,32 @@
 // deleteTodo(2);
 
 // Loading + Error State Pattern
-let loading = false;
-let error = null;
+// let loading = false;
+// let error = null;
 
-const fetchData = async () => {
-  loading = true;
-  error = null;
-  console.log("Loading:", loading);
+// const fetchData = async () => {
+//   loading = true;
+//   error = null;
+//   console.log("Loading:", loading);
 
-  try {
-    throw new Error("Failed");
-  } catch (e) {
-    error = e.message;
-  } finally {
-    loading = false;
-  }
+//   try {
+//     throw new Error("Failed");
+//   } catch (e) {
+//     error = e.message;
+//   } finally {
+//     loading = false;
+//   }
 
-  console.log({ loading, error });
-};
+//   console.log({ loading, error });
+// };
 
-fetchData();
+// fetchData();
+
+// Derived Boolean State
+let items = [];
+
+const hasItems = () => items.length > 0;
+
+console.log(hasItems()); // false
+items.push(1);
+console.log(hasItems()); // true
