@@ -93,20 +93,34 @@
 // setValue(1); // no infinite loop
 
 // Memoized Callback (useCallback idea)
-const createCallback = () => {
-  let cache;
-  return (fn) => {
-    if (!cache) {
-      cache = fn;
-      console.log("Callback created");
-    }
-    return cache;
-  };
+// const createCallback = () => {
+//   let cache;
+//   return (fn) => {
+//     if (!cache) {
+//       cache = fn;
+//       console.log("Callback created");
+//     }
+//     return cache;
+//   };
+// };
+
+// const memoizeCallback = createCallback();
+
+// const cb1 = memoizeCallback(() => console.log("Hello"));
+// const cb2 = memoizeCallback(() => console.log("Hello"));
+
+// console.log(cb1 === cb2); // true
+
+// List Update After Delete (Key logic)
+let todos = [
+  { id: 1, text: "A" },
+  { id: 2, text: "B" },
+  { id: 3, text: "C" },
+];
+
+const deleteTodo = (id) => {
+  todos = todos.filter((t) => t.id !== id);
+  console.log(todos);
 };
 
-const memoizeCallback = createCallback();
-
-const cb1 = memoizeCallback(() => console.log("Hello"));
-const cb2 = memoizeCallback(() => console.log("Hello"));
-
-console.log(cb1 === cb2); // true
+deleteTodo(2);
