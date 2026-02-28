@@ -112,15 +112,37 @@
 // console.log(cb1 === cb2); // true
 
 // List Update After Delete (Key logic)
-let todos = [
-  { id: 1, text: "A" },
-  { id: 2, text: "B" },
-  { id: 3, text: "C" },
-];
+// let todos = [
+//   { id: 1, text: "A" },
+//   { id: 2, text: "B" },
+//   { id: 3, text: "C" },
+// ];
 
-const deleteTodo = (id) => {
-  todos = todos.filter((t) => t.id !== id);
-  console.log(todos);
+// const deleteTodo = (id) => {
+//   todos = todos.filter((t) => t.id !== id);
+//   console.log(todos);
+// };
+
+// deleteTodo(2);
+
+// Loading + Error State Pattern
+let loading = false;
+let error = null;
+
+const fetchData = async () => {
+  loading = true;
+  error = null;
+  console.log("Loading:", loading);
+
+  try {
+    throw new Error("Failed");
+  } catch (e) {
+    error = e.message;
+  } finally {
+    loading = false;
+  }
+
+  console.log({ loading, error });
 };
 
-deleteTodo(2);
+fetchData();
