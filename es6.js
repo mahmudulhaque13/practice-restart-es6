@@ -148,10 +148,20 @@
 // fetchData();
 
 // Derived Boolean State
-let items = [];
+// let items = [];
 
-const hasItems = () => items.length > 0;
+// const hasItems = () => items.length > 0;
 
-console.log(hasItems()); // false
-items.push(1);
-console.log(hasItems()); // true
+// console.log(hasItems()); // false
+// items.push(1);
+// console.log(hasItems()); // true
+
+// Ref Logic (Persist Value Without Render)
+const createRef = (initial) => ({ current: initial });
+
+const countRef = createRef(0);
+
+countRef.current++;
+countRef.current++;
+
+console.log("Ref value:", countRef.current);
