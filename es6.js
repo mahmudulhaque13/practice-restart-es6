@@ -212,22 +212,34 @@
 // console.log("Final state:", state); // (0+1+1)*2 = 4
 
 // Conditional Rendering Logic (Multi-state)
-let loading = false;
-let error = null;
-let data = null;
+// let loading = false;
+// let error = null;
+// let data = null;
 
-const render = () => {
-  if (loading) return "Loading...";
-  if (error) return "Error!";
-  if (!data) return "No Data";
-  return "Show Data";
+// const render = () => {
+//   if (loading) return "Loading...";
+//   if (error) return "Error!";
+//   if (!data) return "No Data";
+//   return "Show Data";
+// };
+
+// console.log(render());
+
+// loading = true;
+// console.log(render());
+
+// loading = false;
+// data = [1, 2, 3];
+// console.log(render());
+
+// Prevent Double API Call (StrictMode idea)
+let called = false;
+
+const fetchData = () => {
+  if (called) return;
+  called = true;
+  console.log("API called once");
 };
 
-console.log(render());
-
-loading = true;
-console.log(render());
-
-loading = false;
-data = [1, 2, 3];
-console.log(render());
+fetchData();
+fetchData(); // ignored
