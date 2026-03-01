@@ -167,11 +167,27 @@
 // console.log("Ref value:", countRef.current);
 
 // Previous State Tracking
-let prev;
-const trackPrev = (current) => {
-  console.log("Prev:", prev, "Current:", current);
-  prev = current;
+// let prev;
+// const trackPrev = (current) => {
+//   console.log("Prev:", prev, "Current:", current);
+//   prev = current;
+// };
+
+// trackPrev(10);
+// trackPrev(20);
+
+// Search + Debounce + Cancel (Logic Only)
+const debounce = (fn, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
 };
 
-trackPrev(10);
-trackPrev(20);
+const searchApi = (q) => console.log("Searching:", q);
+const debounced = debounce(searchApi, 400);
+
+debounced("r");
+debounced("re");
+debounced("rea");
