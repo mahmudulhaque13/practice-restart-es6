@@ -193,20 +193,41 @@
 // debounced("rea");
 
 // State Queue (React setState Queue concept)
-let state = 0;
-const queue = [];
+// let state = 0;
+// const queue = [];
 
-const setState = (updater) => {
-  queue.push(updater);
+// const setState = (updater) => {
+//   queue.push(updater);
+// };
+
+// setState((prev) => prev + 1);
+// setState((prev) => prev + 1);
+// setState((prev) => prev * 2);
+
+// // simulate React flush
+// queue.forEach((fn) => {
+//   state = fn(state);
+// });
+
+// console.log("Final state:", state); // (0+1+1)*2 = 4
+
+// Conditional Rendering Logic (Multi-state)
+let loading = false;
+let error = null;
+let data = null;
+
+const render = () => {
+  if (loading) return "Loading...";
+  if (error) return "Error!";
+  if (!data) return "No Data";
+  return "Show Data";
 };
 
-setState((prev) => prev + 1);
-setState((prev) => prev + 1);
-setState((prev) => prev * 2);
+console.log(render());
 
-// simulate React flush
-queue.forEach((fn) => {
-  state = fn(state);
-});
+loading = true;
+console.log(render());
 
-console.log("Final state:", state); // (0+1+1)*2 = 4
+loading = false;
+data = [1, 2, 3];
+console.log(render());
