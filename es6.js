@@ -233,13 +233,26 @@
 // console.log(render());
 
 // Prevent Double API Call (StrictMode idea)
-let called = false;
+// let called = false;
 
-const fetchData = () => {
-  if (called) return;
-  called = true;
-  console.log("API called once");
-};
+// const fetchData = () => {
+//   if (called) return;
+//   called = true;
+//   console.log("API called once");
+// };
 
-fetchData();
-fetchData(); // ignored
+// fetchData();
+// fetchData(); // ignored
+
+// Derived Filter + Sort Logic
+const products = [
+  { name: "A", price: 100 },
+  { name: "B", price: 50 },
+  { name: "C", price: 200 },
+];
+
+const filteredSorted = products
+  .filter((p) => p.price >= 100)
+  .sort((a, b) => a.price - b.price);
+
+console.log(filteredSorted);
