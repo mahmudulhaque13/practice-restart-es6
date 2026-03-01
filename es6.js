@@ -157,11 +157,21 @@
 // console.log(hasItems()); // true
 
 // Ref Logic (Persist Value Without Render)
-const createRef = (initial) => ({ current: initial });
+// const createRef = (initial) => ({ current: initial });
 
-const countRef = createRef(0);
+// const countRef = createRef(0);
 
-countRef.current++;
-countRef.current++;
+// countRef.current++;
+// countRef.current++;
 
-console.log("Ref value:", countRef.current);
+// console.log("Ref value:", countRef.current);
+
+// Previous State Tracking
+let prev;
+const trackPrev = (current) => {
+  console.log("Prev:", prev, "Current:", current);
+  prev = current;
+};
+
+trackPrev(10);
+trackPrev(20);
