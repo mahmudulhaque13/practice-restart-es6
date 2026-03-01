@@ -177,17 +177,36 @@
 // trackPrev(20);
 
 // Search + Debounce + Cancel (Logic Only)
-const debounce = (fn, delay) => {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), delay);
-  };
+// const debounce = (fn, delay) => {
+//   let timer;
+//   return (...args) => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => fn(...args), delay);
+//   };
+// };
+
+// const searchApi = (q) => console.log("Searching:", q);
+// const debounced = debounce(searchApi, 400);
+
+// debounced("r");
+// debounced("re");
+// debounced("rea");
+
+// State Queue (React setState Queue concept)
+let state = 0;
+const queue = [];
+
+const setState = (updater) => {
+  queue.push(updater);
 };
 
-const searchApi = (q) => console.log("Searching:", q);
-const debounced = debounce(searchApi, 400);
+setState((prev) => prev + 1);
+setState((prev) => prev + 1);
+setState((prev) => prev * 2);
 
-debounced("r");
-debounced("re");
-debounced("rea");
+// simulate React flush
+queue.forEach((fn) => {
+  state = fn(state);
+});
+
+console.log("Final state:", state); // (0+1+1)*2 = 4
