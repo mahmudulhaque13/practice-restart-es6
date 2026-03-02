@@ -285,9 +285,22 @@
 // console.log("Uncontrolled:", input.value);
 
 // Key Stability Issue (Visual Bug Logic)
-let list = ["A", "B", "C"];
+// let list = ["A", "B", "C"];
 
-console.log("Initial:", list);
+// console.log("Initial:", list);
 
-list.unshift("X");
-console.log("After insert:", list);
+// list.unshift("X");
+// console.log("After insert:", list);
+
+// Async State Update Order
+let value = 0;
+
+const asyncUpdate = () => {
+  setTimeout(() => {
+    value += 1;
+    console.log("Async value:", value);
+  }, 100);
+};
+
+asyncUpdate();
+asyncUpdate();
