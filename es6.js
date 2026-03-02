@@ -245,14 +245,25 @@
 // fetchData(); // ignored
 
 // Derived Filter + Sort Logic
-const products = [
-  { name: "A", price: 100 },
-  { name: "B", price: 50 },
-  { name: "C", price: 200 },
-];
+// const products = [
+//   { name: "A", price: 100 },
+//   { name: "B", price: 50 },
+//   { name: "C", price: 200 },
+// ];
 
-const filteredSorted = products
-  .filter((p) => p.price >= 100)
-  .sort((a, b) => a.price - b.price);
+// const filteredSorted = products
+//   .filter((p) => p.price >= 100)
+//   .sort((a, b) => a.price - b.price);
 
-console.log(filteredSorted);
+// console.log(filteredSorted);
+
+// Form Reset After Submit
+let form = { name: "Rahim", email: "r@gmail.com" };
+
+const submit = () => {
+  console.log("Submitted:", form);
+  form = { name: "", email: "" };
+  console.log("Reset:", form);
+};
+
+submit();
