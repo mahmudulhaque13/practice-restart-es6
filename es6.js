@@ -258,12 +258,28 @@
 // console.log(filteredSorted);
 
 // Form Reset After Submit
-let form = { name: "Rahim", email: "r@gmail.com" };
+// let form = { name: "Rahim", email: "r@gmail.com" };
 
-const submit = () => {
-  console.log("Submitted:", form);
-  form = { name: "", email: "" };
-  console.log("Reset:", form);
+// const submit = () => {
+//   console.log("Submitted:", form);
+//   form = { name: "", email: "" };
+//   console.log("Reset:", form);
+// };
+
+// submit();
+
+// Controlled vs Uncontrolled Logic
+// controlled
+let value = "";
+
+const onChange = (v) => {
+  value = v;
+  console.log("Controlled:", value);
 };
 
-submit();
+onChange("hello");
+
+// uncontrolled
+let input = { value: "" };
+input.value = "hello";
+console.log("Uncontrolled:", input.value);
