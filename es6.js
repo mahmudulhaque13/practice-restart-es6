@@ -270,16 +270,24 @@
 
 // Controlled vs Uncontrolled Logic
 // controlled
-let value = "";
+// let value = "";
 
-const onChange = (v) => {
-  value = v;
-  console.log("Controlled:", value);
-};
+// const onChange = (v) => {
+//   value = v;
+//   console.log("Controlled:", value);
+// };
 
-onChange("hello");
+// onChange("hello");
 
-// uncontrolled
-let input = { value: "" };
-input.value = "hello";
-console.log("Uncontrolled:", input.value);
+// // uncontrolled
+// let input = { value: "" };
+// input.value = "hello";
+// console.log("Uncontrolled:", input.value);
+
+// Key Stability Issue (Visual Bug Logic)
+let list = ["A", "B", "C"];
+
+console.log("Initial:", list);
+
+list.unshift("X");
+console.log("After insert:", list);
