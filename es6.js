@@ -293,14 +293,28 @@
 // console.log("After insert:", list);
 
 // Async State Update Order
-let value = 0;
+// let value = 0;
 
-const asyncUpdate = () => {
+// const asyncUpdate = () => {
+//   setTimeout(() => {
+//     value += 1;
+//     console.log("Async value:", value);
+//   }, 100);
+// };
+
+// asyncUpdate();
+// asyncUpdate();
+
+// Abort Previous Request (Search Logic)
+let currentReq = 0;
+
+const searchApi = (q) => {
+  const reqId = ++currentReq;
   setTimeout(() => {
-    value += 1;
-    console.log("Async value:", value);
-  }, 100);
+    if (reqId === currentReq) console.log("Result for:", q);
+  }, 300);
 };
 
-asyncUpdate();
-asyncUpdate();
+searchApi("r");
+searchApi("re");
+searchApi("rea");
