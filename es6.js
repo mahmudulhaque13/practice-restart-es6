@@ -350,12 +350,25 @@
 // console.log(selectTotal([1, 2, 3])); // cached
 
 // Toggle Modal Logic
-let isOpen = false;
+// let isOpen = false;
 
-const toggleModal = () => {
-  isOpen = !isOpen;
-  console.log("Modal open:", isOpen);
+// const toggleModal = () => {
+//   isOpen = !isOpen;
+//   console.log("Modal open:", isOpen);
+// };
+
+// toggleModal();
+// toggleModal();
+
+// Error Boundary Logic (Conceptual)
+const renderComponent = (fn) => {
+  try {
+    fn();
+  } catch {
+    console.log("Something went wrong");
+  }
 };
 
-toggleModal();
-toggleModal();
+renderComponent(() => {
+  throw new Error("Crash");
+});
