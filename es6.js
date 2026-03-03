@@ -306,15 +306,23 @@
 // asyncUpdate();
 
 // Abort Previous Request (Search Logic)
-let currentReq = 0;
+// let currentReq = 0;
 
-const searchApi = (q) => {
-  const reqId = ++currentReq;
-  setTimeout(() => {
-    if (reqId === currentReq) console.log("Result for:", q);
-  }, 300);
-};
+// const searchApi = (q) => {
+//   const reqId = ++currentReq;
+//   setTimeout(() => {
+//     if (reqId === currentReq) console.log("Result for:", q);
+//   }, 300);
+// };
 
-searchApi("r");
-searchApi("re");
-searchApi("rea");
+// searchApi("r");
+// searchApi("re");
+// searchApi("rea");
+
+// Shared State Bug (Reference Issue)
+let state1 = { count: 0 };
+let state2 = state1;
+
+state2.count++;
+
+console.log(state1.count); // 1 ❌ shared
