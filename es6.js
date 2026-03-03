@@ -334,17 +334,28 @@
 // console.log(state1.count); // 0
 
 // Memoized Selector (Redux idea)
-const createSelector = (fn) => {
-  let lastArg, lastRes;
-  return (arg) => {
-    if (arg === lastArg) return lastRes;
-    lastArg = arg;
-    lastRes = fn(arg);
-    return lastRes;
-  };
+// const createSelector = (fn) => {
+//   let lastArg, lastRes;
+//   return (arg) => {
+//     if (arg === lastArg) return lastRes;
+//     lastArg = arg;
+//     lastRes = fn(arg);
+//     return lastRes;
+//   };
+// };
+
+// const selectTotal = createSelector((cart) => cart.reduce((s, i) => s + i, 0));
+
+// console.log(selectTotal([1, 2, 3]));
+// console.log(selectTotal([1, 2, 3])); // cached
+
+// Toggle Modal Logic
+let isOpen = false;
+
+const toggleModal = () => {
+  isOpen = !isOpen;
+  console.log("Modal open:", isOpen);
 };
 
-const selectTotal = createSelector((cart) => cart.reduce((s, i) => s + i, 0));
-
-console.log(selectTotal([1, 2, 3]));
-console.log(selectTotal([1, 2, 3])); // cached
+toggleModal();
+toggleModal();
