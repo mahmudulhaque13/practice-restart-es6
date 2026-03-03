@@ -361,14 +361,24 @@
 // toggleModal();
 
 // Error Boundary Logic (Conceptual)
-const renderComponent = (fn) => {
-  try {
-    fn();
-  } catch {
-    console.log("Something went wrong");
-  }
-};
+// const renderComponent = (fn) => {
+//   try {
+//     fn();
+//   } catch {
+//     console.log("Something went wrong");
+//   }
+// };
 
-renderComponent(() => {
-  throw new Error("Crash");
-});
+// renderComponent(() => {
+//   throw new Error("Crash");
+// });
+
+// Why NOT Store JSX in State (Logic)
+let data = [1, 2, 3];
+
+const renderList = () => data.map((x) => x * 2);
+
+console.log(renderList());
+
+data.push(4);
+console.log(renderList());
