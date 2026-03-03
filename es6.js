@@ -320,15 +320,31 @@
 // searchApi("rea");
 
 // Shared State Bug (Reference Issue)
-let state1 = { count: 0 };
-let state2 = state1;
+// let state1 = { count: 0 };
+// let state2 = state1;
 
-state2.count++;
+// state2.count++;
 
-console.log(state1.count); // 1 ❌ shared
+// console.log(state1.count); // 1 ❌ shared
 
-state1 = { count: 0 };
-state2 = { ...state1 };
-state2.count++;
+// state1 = { count: 0 };
+// state2 = { ...state1 };
+// state2.count++;
 
-console.log(state1.count); // 0
+// console.log(state1.count); // 0
+
+// Memoized Selector (Redux idea)
+const createSelector = (fn) => {
+  let lastArg, lastRes;
+  return (arg) => {
+    if (arg === lastArg) return lastRes;
+    lastArg = arg;
+    lastRes = fn(arg);
+    return lastRes;
+  };
+};
+
+const selectTotal = createSelector((cart) => cart.reduce((s, i) => s + i, 0));
+
+console.log(selectTotal([1, 2, 3]));
+console.log(selectTotal([1, 2, 3])); // cached
