@@ -326,3 +326,9 @@ let state2 = state1;
 state2.count++;
 
 console.log(state1.count); // 1 ❌ shared
+
+state1 = { count: 0 };
+state2 = { ...state1 };
+state2.count++;
+
+console.log(state1.count); // 0
