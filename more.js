@@ -42,13 +42,21 @@
 // console.log(myMap([1, 2, 3], (x) => x * 2));
 
 // Nested array flat করো।
-const arr = [1, [2, [3, 4]], 5];
+// const arr = [1, [2, [3, 4]], 5];
 
-const flatten = (arr) =>
-  arr.reduce(
-    (acc, val) =>
-      Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val),
-    [],
-  );
+// const flatten = (arr) =>
+//   arr.reduce(
+//     (acc, val) =>
+//       Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val),
+//     [],
+//   );
 
-console.log(flatten(arr));
+// console.log(flatten(arr));
+
+// Merge Two Arrays Without Duplicate
+const a = [1, 2, 3];
+const b = [3, 4, 5];
+
+const merged = [...new Set([...a, ...b])];
+
+console.log(merged);
