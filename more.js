@@ -54,9 +54,25 @@
 // console.log(flatten(arr));
 
 // Merge Two Arrays Without Duplicate
-const a = [1, 2, 3];
-const b = [3, 4, 5];
+// const a = [1, 2, 3];
+// const b = [3, 4, 5];
 
-const merged = [...new Set([...a, ...b])];
+// const merged = [...new Set([...a, ...b])];
 
-console.log(merged);
+// console.log(merged);
+
+// ID generator বানাও।
+function createIdGenerator() {
+  let id = 0;
+
+  return function () {
+    id++;
+    return id;
+  };
+}
+
+const generateId = createIdGenerator();
+
+console.log(generateId());
+console.log(generateId());
+console.log(generateId());
