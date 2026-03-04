@@ -12,12 +12,20 @@
 // console.log("Clone:", clone);
 
 // Same id থাকলে duplicate remove করো।
-const products = [
-  { id: 1, name: "Pen" },
-  { id: 2, name: "Book" },
-  { id: 1, name: "Pen" },
-];
+// const products = [
+//   { id: 1, name: "Pen" },
+//   { id: 2, name: "Book" },
+//   { id: 1, name: "Pen" },
+// ];
 
-const unique = [...new Map(products.map((p) => [p.id, p])).values()];
+// const unique = [...new Map(products.map((p) => [p.id, p])).values()];
 
-console.log(unique);
+// console.log(unique);
+
+// 3টা async function একসাথে run করো।
+const asyncTask = (time) =>
+  new Promise((resolve) => setTimeout(() => resolve(`Done in ${time}`), time));
+
+Promise.all([asyncTask(1000), asyncTask(2000), asyncTask(1500)]).then(
+  (result) => console.log(result),
+);
