@@ -31,12 +31,24 @@
 // );
 
 // নিজের map function বানাও।
-const myMap = (arr, fn) => {
-  const result = [];
-  for (let item of arr) {
-    result.push(fn(item));
-  }
-  return result;
-};
+// const myMap = (arr, fn) => {
+//   const result = [];
+//   for (let item of arr) {
+//     result.push(fn(item));
+//   }
+//   return result;
+// };
 
-console.log(myMap([1, 2, 3], (x) => x * 2));
+// console.log(myMap([1, 2, 3], (x) => x * 2));
+
+// Nested array flat করো।
+const arr = [1, [2, [3, 4]], 5];
+
+const flatten = (arr) =>
+  arr.reduce(
+    (acc, val) =>
+      Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val),
+    [],
+  );
+
+console.log(flatten(arr));
