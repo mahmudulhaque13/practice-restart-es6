@@ -23,9 +23,20 @@
 // console.log(unique);
 
 // 3টা async function একসাথে run করো।
-const asyncTask = (time) =>
-  new Promise((resolve) => setTimeout(() => resolve(`Done in ${time}`), time));
+// const asyncTask = (time) =>
+//   new Promise((resolve) => setTimeout(() => resolve(`Done in ${time}`), time));
 
-Promise.all([asyncTask(1000), asyncTask(2000), asyncTask(1500)]).then(
-  (result) => console.log(result),
-);
+// Promise.all([asyncTask(1000), asyncTask(2000), asyncTask(1500)]).then(
+//   (result) => console.log(result),
+// );
+
+// নিজের map function বানাও।
+const myMap = (arr, fn) => {
+  const result = [];
+  for (let item of arr) {
+    result.push(fn(item));
+  }
+  return result;
+};
+
+console.log(myMap([1, 2, 3], (x) => x * 2));
