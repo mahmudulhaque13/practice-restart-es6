@@ -374,11 +374,11 @@
 // });
 
 // Why NOT Store JSX in State (Logic)
-let data = [1, 2, 3];
+// let data = [1, 2, 3];
 
-const renderList = () => data.map((x) => x * 2);
+// const renderList = () => data.map((x) => x * 2);
 
-console.log(renderList());
+// console.log(renderList());
 
-data.push(4);
-console.log(renderList());
+// data.push(4);
+// console.log(renderList());
