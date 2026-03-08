@@ -77,7 +77,7 @@ for (const num of arr) {
 }
 
 // 5. for-in loop (iterates over object properties):
-const obj = {a: 1, b: 2, c: 3};
+const obj = { a: 1, b: 2, c: 3 };
 for (const key in obj) {
   console.log(key, obj[key]);
 }
