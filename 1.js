@@ -82,6 +82,41 @@ for (const key in obj) {
   console.log(key, obj[key]);
 }
 
+// Additional 5 loop examples
+
+// 6. forEach loop (array method):
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach((num) => {
+  console.log(num);
+});
+
+// 7. Nested for loop:
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 2; j++) {
+    console.log(`i: ${i}, j: ${j}`);
+  }
+}
+
+// 8. for loop with break:
+for (let i = 0; i < 10; i++) {
+  if (i === 5) break;
+  console.log(i);
+}
+
+// 9. while loop with continue:
+let k = 0;
+while (k < 10) {
+  k++;
+  if (k % 2 === 0) continue;
+  console.log(k);
+}
+
+// 10. for-of with strings:
+const str = "hello";
+for (const char of str) {
+  console.log(char);
+}
+
 // console.log(entries);
 
 // একটি array-তে প্রতিটি element কয়বার আছে তা count করো।
