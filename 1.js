@@ -49,6 +49,39 @@
 
 // const entries = Object.entries(person);
 
+// 5 quick examples on loops
+
+// 1. for loop (counts from 0 to 4):
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// 2. while loop (counts until a condition is false):
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+// 3. do-while loop (executes at least once, then checks condition):
+i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+
+// 4. for-of loop (iterates over arrays):
+const arr = [1, 2, 3, 4, 5];
+for (const num of arr) {
+  console.log(num);
+}
+
+// 5. for-in loop (iterates over object properties):
+const obj = {a: 1, b: 2, c: 3};
+for (const key in obj) {
+  console.log(key, obj[key]);
+}
+
 // console.log(entries);
 
 // একটি array-তে প্রতিটি element কয়বার আছে তা count করো।
